@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcb64949d9d4f3e4d8816c0de38fb32a, type: 3}
+  m_Name: 1_GameSettings
+  m_EditorClassIdentifier: 
+  _secToSleepMode: 90
+  _fadeBetwenPagesSec: 0.3
+  _iconsAnimationSpeed: 1

@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a99749b8453edec46bf9a0fe1c242a31, type: 3}
+  m_Name: Litke
+  m_EditorClassIdentifier: 
+  BackImage: {fileID: 21300000, guid: b81b521ba37dc4c48bdf0dbe90d9c678, type: 3}
+  NameImage: {fileID: 21300000, guid: 1db7d492ff576434cbe6ab651b7e1156, type: 3}
+  MainTextPrefabs:
+  - {fileID: 801511540083367290, guid: f724e6a54b1a62e45b6d78f98cb99fe2, type: 3}
+  - {fileID: 2379528562517144677, guid: 368711f210caacb40b1d5d70d249fa59, type: 3}
+  - {fileID: 58072299817900538, guid: b700c8775f4109848beca6348aba2b14, type: 3}
+  - {fileID: 2389457565067299586, guid: af4f1f807385c2d40aa857574f737772, type: 3}
+  - {fileID: 8606184999390016292, guid: 5b0156439f48f2b4ca6171155e36ff8b, type: 3}
+  BubbleMenuPhotos:
+  - {fileID: 21300000, guid: 99660557fc0e36b4e8e81ab10ea216a3, type: 3}
+  - {fileID: 21300000, guid: f1af9aea5e333d946976e63cc2b23d73, type: 3}
+  - {fileID: 21300000, guid: 1ee652ebaa47e114eb4b48d8ccab18fd, type: 3}
+  - {fileID: 21300000, guid: 73b08a1c07edd5b46b96cb74a3edc772, type: 3}
+  BubbleList0:
+  - {fileID: 5856743798454975522, guid: a6dfe0b9759341440b4ac5e3a4079581, type: 3}
+  - {fileID: 6873271362186191154, guid: ce739f953e8c0be40a04a9e3449f79e7, type: 3}
+  BubbleList1:
+  - {fileID: 779661527572168046, guid: 9df5b9e9c89771f4a9a1642420ec7788, type: 3}
+  - {fileID: 2635227380175673578, guid: d846d8250f46ec143a5a10fb73f6e8ef, type: 3}
+  BubbleList2:
+  - {fileID: 5287202498118387719, guid: 08eb4226b6610a243a142712f5409cfb, type: 3}
+  - {fileID: 1714679799469700027, guid: c146b67db58abc24a9f20f56ab0fff35, type: 3}
+  - {fileID: 7891690603946823778, guid: 9a9565b7bd3eda841808a2d197198ff4, type: 3}
+  - {fileID: 8565604261682795763, guid: 133c08cc0bd24384da4a0c98e8fbca96, type: 3}
+  - {fileID: 2208325823478394382, guid: fd07df86ab6dcbc43893d84cde8796c0, type: 3}
+  - {fileID: 3292033526764444522, guid: f72d0334cbe7fdc40b7cc8db4f54710c, type: 3}
+  - {fileID: 7373873502138016781, guid: 120b31ffb1a597245a6cea69ac3fe12a, type: 3}
+  - {fileID: 3831507514280648785, guid: 9d948645de607dc4697c20c701d2e44a, type: 3}
+  - {fileID: 5334825738003411797, guid: 1d308532d0d266d4eb6904157568e056, type: 3}
+  BubbleList3:
+  - {fileID: 2125651206501993485, guid: 233c9d2a5f5fae440bf86041bcd88c56, type: 3}
+  BubbleList4: []
+  display2BackSprite: {fileID: 21300000, guid: 99e531b941150af448944d8c4fb20906, type: 3}

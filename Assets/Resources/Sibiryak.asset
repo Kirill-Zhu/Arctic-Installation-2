@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a99749b8453edec46bf9a0fe1c242a31, type: 3}
+  m_Name: Sibiryak
+  m_EditorClassIdentifier: 
+  BackImage: {fileID: 21300000, guid: 43a6647877de32b4a9943da428f6c749, type: 3}
+  NameImage: {fileID: 21300000, guid: d215c1d205617b642a7039f9240004fc, type: 3}
+  MainTextPrefabs:
+  - {fileID: 5985507302115463615, guid: a2258ccc71248484286b5c7f8db6bd1d, type: 3}
+  - {fileID: 4268180976965957048, guid: f873d8aab1ace48429816060e55a60de, type: 3}
+  - {fileID: 2645281114265842857, guid: ea2e803d92658e24487a4965ab8a1c38, type: 3}
+  - {fileID: 1258088974442886200, guid: 3ffe39421ce83ad40bd75f21567c096d, type: 3}
+  BubbleMenuPhotos:
+  - {fileID: 21300000, guid: c71aa19cf474a1744a4323a558866195, type: 3}
+  - {fileID: 21300000, guid: 7c0fdf4f7bfd72641bc1b268459f0f5c, type: 3}
+  - {fileID: 21300000, guid: ee4be81d36a9ede419b39a71d0e9e6da, type: 3}
+  BubbleList0:
+  - {fileID: 6893217561721530645, guid: a4ae692a56a0aad41b7c546929f25f40, type: 3}
+  - {fileID: 5598922259834439500, guid: e8548c1fb80a7754583f5761ecdf7fdc, type: 3}
+  - {fileID: 4282932769143698871, guid: d6f64753618108c4ca1174c4087bd824, type: 3}
+  - {fileID: 197111357916871861, guid: cff613f9d50764740a5c87a0f17a1280, type: 3}
+  BubbleList1:
+  - {fileID: 2342151656806581234, guid: 4775d8f23445f6e4182795e748d863c3, type: 3}
+  - {fileID: 9109063361696298758, guid: 65e3b7a162eda9b429a88193c5f7ee8c, type: 3}
+  - {fileID: 5321483257817285304, guid: 31961abeb1ee9ac4b8afe01798538089, type: 3}
+  - {fileID: 105001705429501314, guid: 296348efefa7c0d4383719284457c629, type: 3}
+  BubbleList2:
+  - {fileID: 512940659654071115, guid: d9f0684de77e4a44f871f42ffac114e5, type: 3}
+  - {fileID: 1209253466498299436, guid: 4dbea9a680c48474fbb12b2d34bb12bc, type: 3}
+  - {fileID: 3138627712864484824, guid: 11d59b3aa22391b44b54a3ac5d58613f, type: 3}
+  BubbleList3: []
+  BubbleList4: []
+  display2BackSprite: {fileID: 21300000, guid: 281b2f102c27a444ca74ed597dd5ffbf, type: 3}

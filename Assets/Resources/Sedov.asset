@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a99749b8453edec46bf9a0fe1c242a31, type: 3}
+  m_Name: Sedov
+  m_EditorClassIdentifier: 
+  BackImage: {fileID: 21300000, guid: 08d93eb7311963542b1723dace3caeab, type: 3}
+  NameImage: {fileID: 21300000, guid: 904b214447fd3864ba46532fb3734d1a, type: 3}
+  MainTextPrefabs:
+  - {fileID: 3709900774727098362, guid: 40de27d49961f214b9fa0ade596978ab, type: 3}
+  - {fileID: 7340225846902709253, guid: fedda12fa41d57d439ee11dc007db47d, type: 3}
+  - {fileID: 1324581759526637588, guid: e03bb8e9b2822ba429ef825ba56ca2f8, type: 3}
+  - {fileID: 8560035419056721427, guid: ceac3fd07fea0da4f827cd8b576b3719, type: 3}
+  - {fileID: 4084385044855114206, guid: 0304d61de36887d4faec834aef5bedae, type: 3}
+  - {fileID: 1936845767449482788, guid: 60642641486a21644bfe67737254d509, type: 3}
+  BubbleMenuPhotos:
+  - {fileID: 21300000, guid: ec45338a6c244e145a42fbb8e1f54315, type: 3}
+  - {fileID: 21300000, guid: 688464c6b623c574eab7c6749577bdfd, type: 3}
+  - {fileID: 21300000, guid: 56a36e78de7d4b543bdfeeb45c983fb0, type: 3}
+  - {fileID: 21300000, guid: 7a53bd409bf0b74478b05444e4bdb223, type: 3}
+  - {fileID: 21300000, guid: 7b5366d8e2ba34d43828b71e6a90a96a, type: 3}
+  BubbleList0:
+  - {fileID: 6208480048490989916, guid: ec6a75686b7833e4d98f1a244e13fdfe, type: 3}
+  - {fileID: 3834046586705958680, guid: 5551c0de7d8701f46897305da4c836db, type: 3}
+  BubbleList1:
+  - {fileID: 5060464583957194770, guid: cc76df45959bf6143a166d368777ae84, type: 3}
+  - {fileID: 4763261052756264106, guid: c63d61ef40e4a86438d1693d28dfc514, type: 3}
+  - {fileID: 8806914672061055730, guid: ab2dddb60c0e5cc42b48d3cebeef07f5, type: 3}
+  - {fileID: 8370112339449952419, guid: 96a020061110d4e4dbe0cdfbc1a5e28d, type: 3}
+  BubbleList2:
+  - {fileID: 1317836446143558634, guid: ea22d713430f31b4abe7449bf8710f2d, type: 3}
+  - {fileID: 7181356891976712502, guid: 5d92ef732e55cf54bbd8206987ca372c, type: 3}
+  - {fileID: 8920045274958408154, guid: 06eeeac756700ab468e75af1c2b9bf17, type: 3}
+  - {fileID: 2669644486053269664, guid: f15a1aef7203ece42850811d582d60bd, type: 3}
+  - {fileID: 6485273066087337315, guid: 3f212b55e0824ea47b613a33bda1e4be, type: 3}
+  BubbleList3:
+  - {fileID: 6948989010484515394, guid: 569933679406c5744b1d3e993c4fb393, type: 3}
+  BubbleList4:
+  - {fileID: 1049262119063737791, guid: e828846863dfd6047b9e7a24a43a4690, type: 3}
+  - {fileID: 1833552193035952820, guid: a4e768926392e064f8bb61d5ec67a98c, type: 3}
+  - {fileID: 1265044338592001825, guid: cc24c6cabfda1b841ad310c2d9234395, type: 3}
+  - {fileID: 8093493462120730965, guid: 0a613c377eee07344b4f2621d2415e0b, type: 3}
+  - {fileID: 1220997135664394893, guid: 5498920594d22e843a373db9d25126a8, type: 3}
+  - {fileID: 5725184559629690426, guid: 050ff93af92276a44ab7593211d1ee2b, type: 3}
+  - {fileID: 2882102200969738861, guid: 531b38272f27a98439e1fe684b315af9, type: 3}
+  display2BackSprite: {fileID: 21300000, guid: 190fb230cec554945bf6c22d7ba4483a, type: 3}
