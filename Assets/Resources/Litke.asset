@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a99749b8453edec46bf9a0fe1c242a31, type: 3}
   m_Name: Litke
   m_EditorClassIdentifier: 
-  BackImage: {fileID: 21300000, guid: b81b521ba37dc4c48bdf0dbe90d9c678, type: 3}
+  BackImage: {fileID: 21300000, guid: 4d8fea77333ca5644a8f880c489e2154, type: 3}
+  BackImage2: {fileID: 21300000, guid: 85e5e16e0fcfd4e438c8ce29121eedd1, type: 3}
   NameImage: {fileID: 21300000, guid: 1db7d492ff576434cbe6ab651b7e1156, type: 3}
   MainTextPrefabs:
   - {fileID: 801511540083367290, guid: f724e6a54b1a62e45b6d78f98cb99fe2, type: 3}

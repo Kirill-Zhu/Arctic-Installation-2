@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 
 
-public enum LedokolName
-{
+public enum LedokolName {
     Sibiryakov = 0,
     Krasin = 1,
     Chelyskin = 2,
@@ -15,10 +14,9 @@ public enum LedokolName
     Vankuver = 5,
     Sedov = 6
 }
-public class PageController : MonoBehaviour
-{
+public class PageController : MonoBehaviour {
     [SerializeField] private GameSettings _gameSettings;
-
+    [SerializeField] private ImageManagerAlter _imageManagerAlter;
     [Header("Sleep Mode Properties")]
     [SerializeField] private SleepModeController _sleepModeController;
     [SerializeField] private CanvasGroup _mainMenucanvasGroup;
@@ -33,15 +31,15 @@ public class PageController : MonoBehaviour
     [SerializeField] private Scrollbar _scrollbar;
 
     [SerializeField] private GameObject _imageContainer;
- 
+
     [Header("Bubble Properties")]
     [SerializeField] private GameObject _bubbleContainer;
     [SerializeField] private Image _bubbleUpPanel;
     [SerializeField] private Image _bubbleUpImage;
 
-    
-    [SerializeField] private float _imageFadeSec=1;
-    
+
+    [SerializeField] private float _imageFadeSec = 1;
+
     [SerializeField] private Button _backbutton;
     [SerializeField] private Button _homeButton;
     [Header("Display 2")]
@@ -50,53 +48,49 @@ public class PageController : MonoBehaviour
 
     private Coroutine _coroutine;
     public bool _canStartCoroutine = true;
-
-    private void Awake()
-    {
+    [SerializeField] private int _currentPageIndex = 0;
+    private void Awake() {
         _imageFadeSec = _gameSettings.FadeBetwenPagesSec;
-
     }
-    public void OpenMainPage(int index)
-    {
+    public void OpenMainPage(int index) {
+        _currentPageIndex = index;
         _curentEcspidition = _ecspiditionList[index];
+
         HideHomeButton();
-        if (_canStartCoroutine)
-        {
-            if(_coroutine!=null)
+        if (_canStartCoroutine) {
+            if (_coroutine != null)
                 StopCoroutine(_coroutine);
             _coroutine = StartCoroutine(ChangeMainImages());
         }
-            
 
-       
+
+
     }
-  
-    IEnumerator ChangeMainImages()
-    {
+
+    IEnumerator ChangeMainImages() {
         _canStartCoroutine = false;
-      
+
         _displya2CanvasGroup.alpha = 0;
 
 
         _mainMenucanvasGroup.alpha = 1;
         _backImage.GetComponent<CanvasGroup>().alpha = 0;
-        _nameImage.GetComponent<CanvasGroup>().alpha =0;
+        _nameImage.GetComponent<CanvasGroup>().alpha = 0;
         _imageContainer.GetComponent<CanvasGroup>().alpha = 0;
-        
+
         //Change content
 
         SetMainMenuImages();
         ExitSleepMode();
         ChangeDisplay2Image(_curentEcspidition.display2BackSprite);
-        
+
         _canStartCoroutine = true;
-        
+
         //Fade In
 
         float fadeInIterations = 20;
-        for (int i = 0; i <= fadeInIterations; i++)
-        {
-            
+        for (int i = 0; i <= fadeInIterations; i++) {
+
             _displya2CanvasGroup.alpha = i / fadeInIterations;
             _backImage.GetComponent<CanvasGroup>().alpha = i / fadeInIterations;
             _nameImage.GetComponent<CanvasGroup>().alpha = i / fadeInIterations;
@@ -104,23 +98,24 @@ public class PageController : MonoBehaviour
             yield return new WaitForSeconds(_imageFadeSec / fadeInIterations);
         }
     }
-    private void SetMainMenuImages()
-    {
+    private void SetMainMenuImages() {
         //Kostyl
-         Vector2 tmpPos = new Vector2(-539, 32);
+        Vector2 tmpPos = new Vector2(-539, 32);
         _imageContainer.GetComponent<RectTransform>().SetLocalPositionAndRotation(tmpPos, Quaternion.identity);
         //End Kostyl
-        
+
+
+        //_backImage.sprite = _curentEcspidition.BackImage2;
+
         _backImage.sprite = _curentEcspidition.BackImage;
         _nameImage.sprite = _curentEcspidition.NameImage;
 
         _backImage.SetNativeSize();
         _nameImage.SetNativeSize();
 
-        if (_curentEcspidition.MainTextPrefabs.Count < 2)
-        {
+        if (_curentEcspidition.MainTextPrefabs.Count < 4) {
             _scrollRect.GetComponent<ScrollRectHandler>().CanDrag(false);
-           
+
             _imageContainer.GetComponent<ContentSizeFitter>().horizontalFit = ContentSizeFitter.FitMode.Unconstrained;
             Vector2 size = new Vector2(1738, 532);
             _imageContainer.GetComponent<RectTransform>().sizeDelta = size;
@@ -128,10 +123,10 @@ public class PageController : MonoBehaviour
             _slider.value = 0;
             _slider.gameObject.SetActive(false);
             _scrollbar.value = 0;
+            //Set back Image
+            _backImage.sprite = _curentEcspidition.BackImage;
 
-        }
-        else
-        {
+        } else {
             _scrollRect.GetComponent<ScrollRectHandler>().CanDrag(true);
 
             _scrollRect.horizontalNormalizedPosition = 0;
@@ -139,16 +134,16 @@ public class PageController : MonoBehaviour
             _slider.value = 0;
             _imageContainer.GetComponent<ContentSizeFitter>().horizontalFit = ContentSizeFitter.FitMode.PreferredSize;
             _slider.gameObject.SetActive(true);
+            //Set back Image
+            _backImage.sprite = _curentEcspidition.BackImage2;
+        }
+        foreach (Transform child in _imageContainer.transform)
 
-        } 
-            foreach (Transform child in _imageContainer.transform)
-               
             Destroy(child.gameObject);
-        
+
         GameObject obj = new GameObject();
-        
-        for (int i = 0; i < _curentEcspidition.MainTextPrefabs.Count; i++)
-        {
+
+        for (int i = 0; i < _curentEcspidition.MainTextPrefabs.Count; i++) {
             GameObject tmpObj = Instantiate(_curentEcspidition.MainTextPrefabs[i], _imageContainer.transform);
             Image image;
 
@@ -163,8 +158,7 @@ public class PageController : MonoBehaviour
         foreach (Transform t in _bubbleContainer.transform)
             Destroy(t.gameObject);
 
-        for (int i = 0; i < _curentEcspidition.BubbleMenuPhotos.Count; i++)
-        {
+        for (int i = 0; i < _curentEcspidition.BubbleMenuPhotos.Count; i++) {
             GameObject tmpobj = Instantiate(obj, _bubbleContainer.transform);
             Image img = tmpobj.AddComponent<Image>();
             img.sprite = _curentEcspidition.BubbleMenuPhotos[i];
@@ -184,12 +178,13 @@ public class PageController : MonoBehaviour
         _scrollbar.value = 0;
         _slider.value = 0;
     }
-   
- 
-    public void OpenBuble(int index)
-    {
+
+
+    public void OpenBuble(int index) {
+
+        _backImage.sprite = _curentEcspidition.BackImage2;
         _scrollRect.GetComponent<ScrollRectHandler>().CanDrag(true);
-       
+
         if (_coroutine != null)
             StopCoroutine(_coroutine);
 
@@ -200,24 +195,28 @@ public class PageController : MonoBehaviour
         Vector2 tmpPos = new Vector2(-539, 220);
         _imageContainer.GetComponent<RectTransform>().SetLocalPositionAndRotation(tmpPos, Quaternion.identity);
         //End Kostyl
-        
+
         ShowHomeButton();
 
         _scrollRect.horizontal = true;
         _slider.gameObject.SetActive(true);
-  
+
         Debug.Log("Open Bubble" + index);
         _nameImage.GetComponent<CanvasGroup>().alpha = 0;
 
         foreach (Transform child in _imageContainer.transform)
             Destroy(child.gameObject);
-        List<GameObject> list = _curentEcspidition.GetBubbleList(index);
 
-        if (list.Count < 2)
-        {
 
-             _scrollRect.GetComponent<ScrollRectHandler>().CanDrag(false);
-          
+        List<GameObject> list = _curentEcspidition.GetBubbleList(index); //Core Images
+
+
+
+        int totalImagesCount = list.Count + _imageManagerAlter.ImagesCount();
+        if (list.Count < totalImagesCount) {
+
+            _scrollRect.GetComponent<ScrollRectHandler>().CanDrag(false);
+
             _imageContainer.GetComponent<ContentSizeFitter>().horizontalFit = ContentSizeFitter.FitMode.Unconstrained;
             Vector2 size = new Vector2(1738, 532);
             _imageContainer.GetComponent<RectTransform>().sizeDelta = size;
@@ -225,9 +224,10 @@ public class PageController : MonoBehaviour
             _slider.value = 0;
             _slider.gameObject.SetActive(false);
             _scrollbar.value = 0;
-        }
-        else
-        {
+            //Set back Image
+            _backImage.sprite = _curentEcspidition.BackImage;
+
+        } else {
             _scrollRect.GetComponent<ScrollRectHandler>().CanDrag(true);
 
             _scrollRect.horizontalNormalizedPosition = 0;
@@ -235,20 +235,26 @@ public class PageController : MonoBehaviour
             _slider.value = 0;
             _imageContainer.GetComponent<ContentSizeFitter>().horizontalFit = ContentSizeFitter.FitMode.PreferredSize;
             _slider.gameObject.SetActive(true);
-        }   
-        
+            //Set back Image
+            _backImage.sprite = _curentEcspidition.BackImage2;
 
+        }
 
-            for (int i = 0; i < list.Count; i++)
-            {
+        //First instatiate core Images
 
-                GameObject tmpObj = Instantiate(list[i], _imageContainer.transform);
-                Image img = tmpObj.GetComponent<Image>();
+        for (int i = 0; i < list.Count; i++) {
 
-                img.SetNativeSize();
-                //Button butt = img.gameObject.AddComponent<Button>();
-                //butt.onClick.AddListener(() => BubbleUp(img.sprite));
-            }
+            GameObject tmpObj = Instantiate(list[i], _imageContainer.transform);
+            Image img = tmpObj.GetComponent<Image>();
+
+            img.SetNativeSize();
+            //Button butt = img.gameObject.AddComponent<Button>();
+            //butt.onClick.AddListener(() => BubbleUp(img.sprite));
+        }
+        //Then Instantiate loaded conten images
+        _imageManagerAlter._fileName = _curentEcspidition.fileName;
+        _imageManagerAlter.imagePaths = _curentEcspidition.imagePaths;
+        _imageManagerAlter.LoadImages();
 
         _scrollRect.horizontalNormalizedPosition = 0;
         _scrollbar.value = 0;
@@ -272,20 +278,17 @@ public class PageController : MonoBehaviour
     //    _bubbleUpImage.GetComponent<CanvasGroup>().alpha = 0;
 
     //}
-    public void EnterSleepMode()
-    {
+    public void EnterSleepMode() {
         Debug.Log("Enter Sleep mode");
-        if(_canStartCoroutine)
-        {
+        if (_canStartCoroutine) {
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
 
             _coroutine = StartCoroutine(GoSleep());
-        }      
+        }
     }
-    private IEnumerator GoSleep()
-    {
-       
+    private IEnumerator GoSleep() {
+
 
         _canStartCoroutine = false;
 
@@ -301,29 +304,27 @@ public class PageController : MonoBehaviour
         _sleepModeController.EnterToSleepMode();
         ChangeDisplay2Image(_sleepModeController.SleepModeSprite);
         float fadeInIterations = 20;
-        for (int i = 0; i <= fadeInIterations; i++)
-        {
+        for (int i = 0; i <= fadeInIterations; i++) {
             _sleepModeController.GetComponent<CanvasGroup>().alpha = i / fadeInIterations;
             _displya2CanvasGroup.alpha = i / fadeInIterations;
             yield return new WaitForSeconds(_imageFadeSec / fadeInIterations);
         }
-        
+
     }
-    public void ExitSleepMode()
-    {
+    public void ExitSleepMode() {
         _sleepModeController.ExitSleepMode();
-       
+
     }
-    private void ChangeDisplay2Image(Sprite sprite)
-    {
+    #region 2_D DISPLAY
+    private void ChangeDisplay2Image(Sprite sprite) {
         _displya2Image.sprite = sprite;
     }
-    public void BackButton()
-    {
+    #endregion
+    #region BUTTONS
+    public void BackButton() {
 
 
-        if (_canStartCoroutine)
-        {
+        if (_canStartCoroutine) {
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
             _coroutine = StartCoroutine(ChangeMainImages());
@@ -331,20 +332,18 @@ public class PageController : MonoBehaviour
         _backbutton.onClick.RemoveAllListeners();
         HideHomeButton();
     }
-    private void HideHomeButton()
-    {
+    private void HideHomeButton() {
         Debug.Log("Hide home Button");
         _homeButton.gameObject.SetActive(false);
         _backbutton.onClick.RemoveAllListeners();
         _backbutton.onClick.AddListener(EnterSleepMode);
-       
+
     }
-    private void ShowHomeButton()
-    {
+    private void ShowHomeButton() {
         Debug.Log("Show home button");
         _homeButton.gameObject.SetActive(true);
         _backbutton.onClick.RemoveAllListeners();
         _backbutton.onClick.AddListener(BackButton);
     }
-   
+    #endregion
 }
